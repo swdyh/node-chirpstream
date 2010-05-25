@@ -1,7 +1,7 @@
 var sys = require('sys')
 var chirpStrem = require('./chirpstream')
 
-var auth = 'xxx' // base64('id' + ':' + password)
+var auth = 'xxx' // base64(id + ':' + password)
 var chirp = new chirpStrem.ChirpStream(auth)
 var eventTypes = ['friends', 'text', 'event', 'follow', 'favorite', 'retweet', 'delete', 'other']
 eventTypes.forEach(function(i) {
