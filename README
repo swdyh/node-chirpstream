@@ -1,0 +1,24 @@
+A Twitter ChirpStream(ChirpUserStreams) Library for Node.js
+
+Example:
+
+var sys = require('sys')
+var chirpStrem = require('./chirpstream')
+
+var auth = 'xxx' // base64(id + ':' + password)
+var chirp = new chirpStrem.ChirpStream(auth)
+var eventTypes = ['friends', 'text', 'event', 'follow', 'favorite', 'retweet', 'delete', 'other']
+eventTypes.forEach(function(i) {
+    chirp.addListener(i, function(chirp) {
+        sys.puts('--- ' + i + ' ---')
+        sys.puts(JSON.stringify(chirp))
+        sys.puts('---')
+    })
+})
+chirp.connect()
+
+
+Author: swdyh <http://mailhide.recaptcha.net/d?k=01AhB7crgrlHptVaYRD0oPwA==&c=L_iqOZrGmo6hcGpPTFg1QYnjr-WpAStyQ4Y8Sh
+fgOHs=>
+Copyright: Copyright (c) 2010 swdyh
+License: MIT
