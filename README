@@ -18,7 +18,6 @@ eventTypes.forEach(function(i) {
 chirp.connect()
 
 
-Author: swdyh <http://mailhide.recaptcha.net/d?k=01AhB7crgrlHptVaYRD0oPwA==&c=L_iqOZrGmo6hcGpPTFg1QYnjr-WpAStyQ4Y8Sh
-fgOHs=>
+Author: swdyh <http://mailhide.recaptcha.net/d?k=01AhB7crgrlHptVaYRD0oPwA==&c=L_iqOZrGmo6hcGpPTFg1QYnjr-WpAStyQ4Y8ShfgOHs=>
 Copyright: Copyright (c) 2010 swdyh
 License: MIT
