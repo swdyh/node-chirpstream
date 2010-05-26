@@ -3,12 +3,21 @@ var chirpStrem = require('./chirpstream')
 
 var auth = 'xxx' // base64(id + ':' + password)
 var chirp = new chirpStrem.ChirpStream(auth)
-var eventTypes = ['friends', 'text', 'event', 'follow', 'favorite', 'retweet', 'delete', 'other']
-eventTypes.forEach(function(i) {
-    chirp.addListener(i, function(chirp) {
-        sys.puts('--- ' + i + ' ---')
-        sys.puts(JSON.stringify(chirp))
-        sys.puts('---')
-    })
+
+chirp.addListener('text', function(i) {
+    sys.puts(i.user.screen_name + ': ' + i.text)
+})
+chirp.addListener('favorite', function(i) {
+    sys.puts(i.source.screen_name + ': favorite')
+    sys.puts('  ' + i.target_object.user.screen_name + ': ' +
+             i.target_object.text)
+})
+chirp.addListener('retweet', function(i) {
+    sys.puts(i.source.screen_name + ': retweet')
+    sys.puts('  ' + i.target_object.user.screen_name + ': ' +
+             i.target_object.text)
+})
+chirp.addListener('follow', function(i) {
+    sys.puts(i.source.screen_name + ': follow ' + i.target.screen_name)
 })
 chirp.connect()
